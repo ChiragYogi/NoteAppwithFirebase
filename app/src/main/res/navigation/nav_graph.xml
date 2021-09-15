@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noteDisplay">
+
+    <fragment
+        android:id="@+id/noteDisplay"
+        android:name="com.example.noteappwithfirebase.view.NoteDisplay"
+        android:label="Note App With FireBase"
+        tools:layout="@layout/note_display_fragment" >
+        <action
+            android:id="@+id/action_noteDisplay_to_addNoteFragment"
+            app:destination="@id/addNoteFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_noteDisplay_to_viewNote"
+            app:destination="@id/viewNote" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.noteappwithfirebase.view.AddNoteFragment"
+        android:label="Add Note" />
+    <fragment
+        android:id="@+id/updateNoteFragment"
+        android:name="com.example.noteappwithfirebase.view.UpdateNoteFragment"
+        android:label="Update Note"
+        tools:layout="@layout/fragment_update_note" />
+    <fragment
+        android:id="@+id/viewNote"
+        android:name="com.example.noteappwithfirebase.view.ViewNote"
+        android:label="Note Detail"
+        tools:layout="@layout/fragment_view_note" >
+        <action
+            android:id="@+id/action_viewNote_to_updateNoteFragment"
+            app:destination="@id/updateNoteFragment" />
+    </fragment>
+</navigation>

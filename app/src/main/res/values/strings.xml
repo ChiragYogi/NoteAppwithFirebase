@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Note App with Firebase</string>
+
+    <string name="note_title">Note Title :-</string>
+    <string name="note_info_title">Note Info :-</string>
+    <string name="note_created_time">13/09/2021 18:34 pm</string>
+    <string name="created_on">Created on :-</string>
+    <string name="note_title_here_hint">Note title here</string>
+    <string name="note_description_hint">Note Description</string>
+    <string name="save_note">Save Note</string>
+    <string name="update_note">Update Note</string>
+    <string name="add_note">Add Note</string>
+    <string name="floating_button_to_create_new_note">Floating button to create new note</string>
+</resources>

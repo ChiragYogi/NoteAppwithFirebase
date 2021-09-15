@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:text="@string/note_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/title_text" />
+
+    <EditText
+        android:id="@+id/note_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt"
+        style="@style/edit_txt_style_title"
+        android:background="@drawable/edit_text_border"
+        android:autofillHints="no" />
+
+    <TextView
+        android:id="@+id/cratedAtTxt"
+        android:text="@string/created_on"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cratedAtTimeTxT"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/time_crated_style" />
+
+    <TextView
+        android:id="@+id/cratedAtTimeTxT"
+        style="@style/time_crated_style"
+        android:layout_marginTop="8dp"
+        android:text="@string/note_created_time"
+        app:layout_constraintStart_toEndOf="@+id/cratedAtTxt"
+        app:layout_constraintTop_toBottomOf="@+id/note_title" />
+
+    <TextView
+        android:id="@+id/noteInfo"
+        android:text="@string/note_info_title"
+        style="@style/title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cratedAtTxt" />
+
+    <EditText
+         android:id="@+id/noteInfoEdt"
+        style="@style/edit_txt_style_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteInfo"
+        android:importantForAutofill="no"
+        android:background="@drawable/edit_text_border"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
