@@ -13,12 +13,12 @@ import com.example.noteappwithfirebase.model.Note
 import com.example.noteappwithfirebase.view.adepter.NoteAdepter
 
 
-class NoteDisplay : Fragment(R.layout.note_display_fragment) {
+class NoteDisplay : Fragment(R.layout.note_display_fragment), NoteAdepter.OnItemClick {
 
     private var _binding:NoteDisplayFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: NoteViewModel
-    private val mAdapte =  NoteAdepter()
+    private val mAdapte =  NoteAdepter(this)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,6 +59,14 @@ class NoteDisplay : Fragment(R.layout.note_display_fragment) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(note: Note) {
+
+
+
+        findNavController().navigate(R.id.action_noteDisplay_to_updateNoteFragment)
+
     }
 
 }

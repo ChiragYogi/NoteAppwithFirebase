@@ -24,7 +24,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
         private var _binding:FragmentAddNoteBinding? = null
         private val binding get() = _binding!!
-        lateinit var viewModel: NoteViewModel
+        private lateinit var viewModel: NoteViewModel
 
        @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,7 +66,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
     }
 
-    fun validatingInput(title: String,info: String): Boolean{
+    private fun validatingInput(title: String, info: String): Boolean{
         return !(title.isEmpty() || info.isEmpty())
     }
 

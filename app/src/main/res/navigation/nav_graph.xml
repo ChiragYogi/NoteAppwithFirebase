@@ -13,11 +13,10 @@
         <action
             android:id="@+id/action_noteDisplay_to_addNoteFragment"
             app:destination="@id/addNoteFragment"
-            app:launchSingleTop="false"
-            app:popUpToInclusive="false" />
+            />
         <action
-            android:id="@+id/action_noteDisplay_to_viewNote"
-            app:destination="@id/viewNote" />
+            android:id="@+id/action_noteDisplay_to_updateNoteFragment"
+            app:destination="@id/updateNoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
@@ -26,15 +25,6 @@
     <fragment
         android:id="@+id/updateNoteFragment"
         android:name="com.example.noteappwithfirebase.view.UpdateNoteFragment"
-        android:label="Update Note"
-        tools:layout="@layout/fragment_update_note" />
-    <fragment
-        android:id="@+id/viewNote"
-        android:name="com.example.noteappwithfirebase.view.ViewNote"
-        android:label="Note Detail"
-        tools:layout="@layout/fragment_view_note" >
-        <action
-            android:id="@+id/action_viewNote_to_updateNoteFragment"
-            app:destination="@id/updateNoteFragment" />
-    </fragment>
+        android:label="fragment_update_note2"
+        tools:layout="@layout/fragment_update_note2" />
 </navigation>

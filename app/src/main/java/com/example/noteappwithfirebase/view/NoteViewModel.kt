@@ -15,6 +15,13 @@ class NoteViewModel(private val repo: NoteReposetry): ViewModel() {
         }
     }
 
+    fun updateNote(note: Note) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.updatedNote(note)
+        }
+
+    }
+
 
     val responseLiveData = liveData(Dispatchers.IO) {
         emit(repo.readNoteFromFireBase())

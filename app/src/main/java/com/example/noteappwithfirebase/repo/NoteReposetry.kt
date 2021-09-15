@@ -13,7 +13,6 @@ class NoteReposetry {
 
 
 
-
     fun addNote(note: Note) {
         try {
             database.child("MyNotes").push().setValue(note)
@@ -35,9 +34,23 @@ class NoteReposetry {
              response.exception = e
          }
 
-
-
         return response
+    }
+
+    fun updatedNote(note: Note) {
+
+        val key = database.child("MyNotes").key
+        try {
+            val updatedNote = mapOf(
+                 "title" to note.title,
+                 "info" to note.info,
+                 "createdAt" to note.createdAt
+            )
+            database.child("MyNotes").setValue(updatedNote)
+        }catch (e: Exception){
+
+        }
+
     }
 
 

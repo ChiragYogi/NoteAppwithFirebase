@@ -7,13 +7,28 @@ import com.example.noteappwithfirebase.databinding.ItemNoteBinding
 import com.example.noteappwithfirebase.model.Note
 
 
-class NoteAdepter(): RecyclerView.Adapter<NoteAdepter.MyViewHolder>() {
+class NoteAdepter(private val listener: OnItemClick): RecyclerView.Adapter<NoteAdepter.MyViewHolder>() {
 
     private var data: List<Note> = ArrayList()
 
-    class MyViewHolder(private val binding: ItemNoteBinding) :
+    inner class MyViewHolder(private val binding: ItemNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        init {
+
+            binding.apply {
+
+                root.setOnClickListener {
+
+                    val position = adapterPosition
+
+                    if (position != RecyclerView.NO_POSITION){
+                        val note = data[position]
+                        listener.onItemClick(note)
+                    }
+                }
+            }
+        }
         fun bind(item: Note) {
             binding.apply {
                 noteTitle.text = item.title
@@ -40,6 +55,11 @@ class NoteAdepter(): RecyclerView.Adapter<NoteAdepter.MyViewHolder>() {
     fun swapData(data:List<Note>){
         this.data = data
         notifyDataSetChanged()
+    }
+
+    interface OnItemClick{
+
+        fun onItemClick(note: Note)
     }
 
 }
