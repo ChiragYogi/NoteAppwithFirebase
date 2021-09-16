@@ -1,18 +1,18 @@
 package com.example.noteappwithfirebase.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.noteappwithfirebase.MainActivity
+import com.example.noteappwithfirebase.R
 import com.example.noteappwithfirebase.databinding.FragmentUpdateNote2Binding
 import com.example.noteappwithfirebase.model.Note
+import com.example.noteappwithfirebase.utilles.validate.validatingInput
 
 
-class UpdateNoteFragment : Fragment() {
-
+class UpdateNoteFragment : Fragment(R.layout.fragment_update_note2) {
 
     private var _binding:FragmentUpdateNote2Binding? = null
     private val binding get() = _binding!!
@@ -24,7 +24,16 @@ class UpdateNoteFragment : Fragment() {
         _binding = FragmentUpdateNote2Binding.bind(view)
         viewModel = (activity as MainActivity).viewModel
 
-        val args = arguments?
+        val title = arguments?.getString("title")
+        val info = arguments?.getString("info")
+        val cratedAt = arguments?.getString("createdAt")
+        Log.d("FirebaseLog","$title $info $cratedAt")
+
+        binding.updateNoteLayout.apply {
+            noteTitle.setText(title)
+            noteInfoEdt.setText(info)
+            cratedAtTimeTxT.text = cratedAt
+        }
 
         binding.updateNoteButton.setOnClickListener {
             updateNoteToFireBase()
@@ -53,9 +62,7 @@ class UpdateNoteFragment : Fragment() {
 
     }
 
-    fun validatingInput(title: String,info: String): Boolean{
-        return !(title.isEmpty() || info.isEmpty())
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

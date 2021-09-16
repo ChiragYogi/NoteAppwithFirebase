@@ -1,4 +1,4 @@
-package com.example.noteappwithfirebase
+package com.example.noteappwithfirebase.utilles
 
 import com.example.noteappwithfirebase.model.Note
 

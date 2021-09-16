@@ -4,14 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/drawable/edit_text_border.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/drawable/ic_baseline_create_24.xml" value="0.18796296296296297" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.18796296296296297" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/add_update_note_layout.xml" value="0.25" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/fragment_add_note.xml" value="0.14" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/fragment_update_note.xml" value="0.22" />
-        <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/fragment_update_note2.xml" value="0.14" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/fragment_update_note2.xml" value="0.16" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/fragment_view_note.xml" value="0.22" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/item_note.xml" value="0.25" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/layout/note_display_fragment.xml" value="0.12" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/NoteAppwithFirebase/app/src/main/res/menu/delete_menu.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -26,4 +26,10 @@ class NoteViewModel(private val repo: NoteReposetry): ViewModel() {
     val responseLiveData = liveData(Dispatchers.IO) {
         emit(repo.readNoteFromFireBase())
     }
+
+    fun removeNote(note: Note) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.deleteNote(note)
+        }
+    }
 }

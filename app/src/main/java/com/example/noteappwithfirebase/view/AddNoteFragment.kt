@@ -14,6 +14,7 @@ import com.example.noteappwithfirebase.MainActivity
 import com.example.noteappwithfirebase.R
 import com.example.noteappwithfirebase.databinding.FragmentAddNoteBinding
 import com.example.noteappwithfirebase.model.Note
+import com.example.noteappwithfirebase.utilles.validate.validatingInput
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -34,8 +35,8 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
         viewModel = (activity as MainActivity).viewModel
 
         val date = LocalDateTime.now()
-        val formater = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss a")
-        val timeNow = date.format(formater)
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss a")
+        val timeNow = date.format(formatter)
         binding.addNoteLayout.cratedAtTimeTxT.text = timeNow
         Log.d("FirebaseLog", timeNow)
         binding.addNoteButton.setOnClickListener {
@@ -66,9 +67,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
 
     }
 
-    private fun validatingInput(title: String, info: String): Boolean{
-        return !(title.isEmpty() || info.isEmpty())
-    }
+
 
 
     override fun onDestroyView() {

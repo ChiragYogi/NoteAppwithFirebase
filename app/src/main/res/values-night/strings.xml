@@ -11,4 +11,5 @@
     <string name="update_note">Update Note</string>
     <string name="add_note">Add Note</string>
     <string name="floating_button_to_create_new_note">Floating button to create new note</string>
+    <string name="delete_note">Delete Note</string>
 </resources>

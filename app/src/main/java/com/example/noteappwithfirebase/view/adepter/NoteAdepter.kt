@@ -1,15 +1,18 @@
 package com.example.noteappwithfirebase.view.adepter
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noteappwithfirebase.databinding.ItemNoteBinding
 import com.example.noteappwithfirebase.model.Note
 
 
-class NoteAdepter(private val listener: OnItemClick): RecyclerView.Adapter<NoteAdepter.MyViewHolder>() {
 
-    private var data: List<Note> = ArrayList()
+class NoteAdepter(private val listener: OnItemClick) :
+    ListAdapter<Note,NoteAdepter.MyViewHolder>(DiffUtillCallback()) {
+
+
 
     inner class MyViewHolder(private val binding: ItemNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -22,13 +25,16 @@ class NoteAdepter(private val listener: OnItemClick): RecyclerView.Adapter<NoteA
 
                     val position = adapterPosition
 
-                    if (position != RecyclerView.NO_POSITION){
-                        val note = data[position]
+                    if (position != RecyclerView.NO_POSITION) {
+                        val note = getItem(position)
                         listener.onItemClick(note)
                     }
                 }
+
+
             }
         }
+
         fun bind(item: Note) {
             binding.apply {
                 noteTitle.text = item.title
@@ -44,22 +50,32 @@ class NoteAdepter(private val listener: OnItemClick): RecyclerView.Adapter<NoteA
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = data[position]
+        val currentItem = getItem(position)
         holder.bind(currentItem)
     }
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
 
-    fun swapData(data:List<Note>){
-        this.data = data
-        notifyDataSetChanged()
-    }
 
-    interface OnItemClick{
+
+
+    interface OnItemClick {
 
         fun onItemClick(note: Note)
+
+
+
     }
 
+    class DiffUtillCallback : DiffUtil.ItemCallback<Note>() {
+        override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem.createdAt == newItem.createdAt
+        }
+
+        override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+
 }
+
