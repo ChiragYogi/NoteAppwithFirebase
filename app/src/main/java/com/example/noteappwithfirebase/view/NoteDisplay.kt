@@ -13,6 +13,7 @@ import com.example.noteappwithfirebase.R
 import com.example.noteappwithfirebase.databinding.NoteDisplayFragmentBinding
 import com.example.noteappwithfirebase.model.Note
 import com.example.noteappwithfirebase.view.adepter.NoteAdepter
+import com.google.android.material.snackbar.Snackbar
 
 
 class NoteDisplay : Fragment(R.layout.note_display_fragment), NoteAdepter.OnItemClick{
@@ -32,7 +33,7 @@ class NoteDisplay : Fragment(R.layout.note_display_fragment), NoteAdepter.OnItem
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = mAdapte
-             swipeToDelete()
+             swipeToDelete(this)
              }
 
         getDataForRecyclerView()
@@ -47,7 +48,7 @@ class NoteDisplay : Fragment(R.layout.note_display_fragment), NoteAdepter.OnItem
 
     }
 
-    private fun swipeToDelete() {
+    private fun swipeToDelete(recyclerView: RecyclerView) {
       val swipeToCallback = object : ItemTouchHelper.SimpleCallback(
           0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
       ){
@@ -61,12 +62,16 @@ class NoteDisplay : Fragment(R.layout.note_display_fragment), NoteAdepter.OnItem
 
           override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
-
               val note = mAdapte.currentList[viewHolder.adapterPosition]
                viewModel.removeNote(note)
+              Snackbar.make(requireView(),"Note Deleted",Snackbar.LENGTH_LONG).show()
+
           }
 
       }
+        val itemTouchHelper = ItemTouchHelper(swipeToCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
     }
 
     private fun getDataForRecyclerView() {
@@ -100,6 +105,8 @@ class NoteDisplay : Fragment(R.layout.note_display_fragment), NoteAdepter.OnItem
         findNavController().navigate(R.id.action_noteDisplay_to_updateNoteFragment,bundle)
 
     }
+
+
 
 
 
